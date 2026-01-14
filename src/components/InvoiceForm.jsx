@@ -92,7 +92,7 @@ const InvoiceForm = ({ initialData, onSuccess, onCancel }) => {
                 required
             />
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
                     id="invoiceDate"
                     label="Invoice Date"
@@ -117,15 +117,15 @@ const InvoiceForm = ({ initialData, onSuccess, onCancel }) => {
                 />
             </div>
 
-            <div className="bg-gray-50 p-3 rounded text-sm text-gray-600">
+            <div className="bg-gray-50 p-3 rounded-lg text-xs sm:text-sm text-gray-600">
                 Estimated Due Date: <span className="font-medium text-gray-900">{calculatedDue}</span>
             </div>
 
-            <div className="flex justify-end space-x-3 pt-4 border-t mt-4">
-                <Button type="button" variant="secondary" onClick={onCancel}>
+            <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-4 border-t mt-4">
+                <Button type="button" variant="secondary" onClick={onCancel} className="w-full sm:w-auto">
                     Cancel
                 </Button>
-                <Button type="submit" variant="primary">
+                <Button type="submit" variant="primary" className="w-full sm:w-auto">
                     {initialData ? 'Update Invoice' : 'Create Invoice'}
                 </Button>
             </div>

@@ -69,31 +69,33 @@ const SummaryCards = () => {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
             {cards.map((card) => (
                 <Card key={card.title} className={`relative group hover:-translate-y-1 transition-all duration-300 hover:shadow-xl ${card.shadowClass}`}>
                     <div className="flex items-start justify-between relative z-10">
-                        <div>
-                            <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">{card.title}</p>
-                            <h3 className="text-3xl font-bold text-gray-900 mt-2 tracking-tight">{card.count}</h3>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider truncate">{card.title}</p>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-2 tracking-tight">{card.count}</h3>
                         </div>
-                        <div className={`p-3 rounded-xl bg-gradient-to-br ${card.gradient} shadow-lg shadow-gray-200 group-hover:scale-110 transition-transform duration-300`}>
-                            {card.icon}
+                        <div className={`p-2.5 sm:p-3 rounded-xl bg-gradient-to-br ${card.gradient} shadow-lg shadow-gray-200 group-hover:scale-110 transition-transform duration-300 flex-shrink-0 ml-2`}>
+                            <div className="w-5 h-5 sm:w-6 sm:h-6">
+                                {card.icon}
+                            </div>
                         </div>
                     </div>
-                    <div className="mt-6 pt-4 border-t border-gray-50 flex items-baseline justify-between transition-colors">
-                        <div>
+                    <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-50 flex items-baseline justify-between transition-colors">
+                        <div className="min-w-0 flex-1">
                             <span className="text-xs text-gray-400 font-medium uppercase">Value</span>
-                            <p className={`text-lg font-bold ${card.colorClass} tabular-nums`}>
+                            <p className={`text-base sm:text-lg font-bold ${card.colorClass} tabular-nums truncate`}>
                                 {formatMoney(card.amount)}
                             </p>
                         </div>
                          {/* Decorative Element */}
-                         <div className={`h-1.5 w-16 rounded-full bg-gradient-to-r ${card.gradient} opacity-20 group-hover:opacity-100 transition-opacity`}></div>
+                         <div className={`hidden sm:block h-1.5 w-16 rounded-full bg-gradient-to-r ${card.gradient} opacity-20 group-hover:opacity-100 transition-opacity flex-shrink-0 ml-2`}></div>
                     </div>
                     
                     {/* Background blob for fun */}
-                    <div className={`absolute -right-6 -top-6 w-24 h-24 rounded-full bg-gradient-to-br ${card.gradient} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity`}></div>
+                    <div className={`absolute -right-6 -top-6 w-24 h-24 rounded-full bg-gradient-to-br ${card.gradient} opacity-5 blur-2xl group-hover:opacity-10 transition-opacity hidden sm:block`}></div>
                 </Card>
             ))}
         </div>
